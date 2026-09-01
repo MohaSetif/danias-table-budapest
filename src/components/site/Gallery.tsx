@@ -6,12 +6,12 @@ import { Reveal } from "./Reveal";
  * IMAGE PLACEHOLDERS #6–#11 — swap each entry's `src` with your own import.
  */
 const GALLERY: { label: string; span?: string; src: string }[] = [
-  { label: "Gallery photo 1 — dining room at night", span: "md:col-span-2 md:row-span-2", src: "../../../public/danias_restaurant/download (5).jpg" },
-  { label: "Gallery photo 2 — plated dish close-up", src: "../../../public/danias_restaurant/download (4).jpg" },
-  { label: "Gallery photo 3 — bar & wine selection", src: "../../../public/danias_restaurant/download (7).jpg" },
-  { label: "Gallery photo 4 — small plates spread", src: "../../../public/danias_restaurant/download (12).jpg" },
-  { label: "Gallery photo 5 — dessert", src: "../../../public/danias_restaurant/download (10).jpg" },
-  { label: "Gallery photo 6 — exterior on Izabella utca", span: "md:col-span-2", src: "../../../public/danias_restaurant/download (14).jpg" },
+  { label: "Gallery photo 1 — dining room at night", span: "md:col-span-2 md:row-span-2", src: "/danias_restaurant/download (5).jpg" },
+  { label: "Gallery photo 2 — plated dish close-up", src: "/danias_restaurant/download (4).jpg" },
+  { label: "Gallery photo 3 — bar & wine selection", src: "/danias_restaurant/download (7).jpg" },
+  { label: "Gallery photo 4 — small plates spread", src: "/danias_restaurant/download (12).jpg" },
+  { label: "Gallery photo 5 — dessert", src: "/danias_restaurant/download (10).jpg" },
+  { label: "Gallery photo 6 — exterior on Izabella utca", span: "md:col-span-2", src: "/danias_restaurant/download (14).jpg" },
 ];
 
 export function Gallery() {

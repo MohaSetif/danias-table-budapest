@@ -12,21 +12,21 @@ const DISHES: { label: string; name: string; hu: string; desc: string; src: stri
     name: "Napi Leves",
     hu: "Soup of the Day",
     desc: "Whatever the market gives us that morning, simmered slowly and served with fresh bread.",
-    src: "../../../public/danias_restaurant/download (1).jpg"
+    src: "/danias_restaurant/download (1).jpg"
   },
   {
     label: "Dish photo — Marha Gulyás",
     name: "Marha Gulyás",
     hu: "Beef Goulash",
     desc: "The classic: tender beef, sweet paprika, root vegetables and a deep, rust-red broth.",
-    src: "../../../public/danias_restaurant/download (8).jpg"
+    src: "/danias_restaurant/download (8).jpg"
   },
   {
     label: "Dish photo — Csirkepaprikás",
     name: "Csirkepaprikás",
     hu: "Chicken Paprikash",
     desc: "Creamy paprika sauce over free-range chicken, with hand-pinched nokedli dumplings.",
-    src: "../../../public/danias_restaurant/download (13).jpg"
+    src: "/danias_restaurant/download (13).jpg"
   },
 ];
 

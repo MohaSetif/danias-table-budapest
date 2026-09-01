@@ -12,7 +12,7 @@ export function Hero() {
     <section id="home" className="relative min-h-[92vh] w-full overflow-hidden">
       {/* --- HERO BACKGROUND IMAGE --- */}
       <div className="absolute inset-0">
-        <ImagePlaceholder label="Hero image — restaurant interior" />
+        <ImagePlaceholder label="Hero image — restaurant interior" align="top" />
         {/* Candlelit warm overlay for text legibility */}
         <div className="absolute inset-0 candle-gradient opacity-90" />
       </div>

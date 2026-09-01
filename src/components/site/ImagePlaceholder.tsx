@@ -14,10 +14,12 @@ type ImagePlaceholderProps = {
   src?: string | undefined;
   /** Alt text for accessibility / SEO */
   alt?: string | undefined;
-  className?: string;
+  className?: string | undefined;
+  /** Vertical position of the label text */
+  align?: "center" | "top" | undefined;
 };
 
-export function ImagePlaceholder({ label, src, alt, className = "" }: ImagePlaceholderProps) {
+export function ImagePlaceholder({ label, src, alt, className = "", align = "center" }: ImagePlaceholderProps) {
   if (src) {
     return (
       <img
@@ -31,7 +33,9 @@ export function ImagePlaceholder({ label, src, alt, className = "" }: ImagePlace
 
   return (
     <div
-      className={`flex h-full w-full items-center justify-center bg-muted px-6 text-center ${className}`}
+      className={`flex h-full w-full justify-center bg-muted px-6 text-center ${
+        align === "top" ? "items-start pt-28" : "items-center"
+      } ${className}`}
       role="img"
       aria-label={label}
     >

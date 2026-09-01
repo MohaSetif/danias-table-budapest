@@ -1,6 +1,7 @@
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Stars } from "./Stars";
 import { Reveal } from "./Reveal";
+import heroImage from "../../../public/danias_restaurant/hero2.jpg";
 
 /**
  * HERO SECTION
@@ -9,10 +10,10 @@ import { Reveal } from "./Reveal";
  */
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-[92vh] w-full overflow-hidden">
+    <section id="home" className="relative min-h-[100vh] w-full overflow-hidden">
       {/* --- HERO BACKGROUND IMAGE --- */}
       <div className="absolute inset-0">
-        <ImagePlaceholder label="Hero image — restaurant interior" align="top" />
+        <ImagePlaceholder src={heroImage} label="Hero image — restaurant interior" align="top" />
         {/* Candlelit warm overlay for text legibility */}
         <div className="absolute inset-0 candle-gradient opacity-90" />
       </div>

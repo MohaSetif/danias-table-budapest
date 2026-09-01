@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, UtensilsCrossed, Bike } from "lucide-react";
+import { MapPin, Phone, Clock, UtensilsCrossed, Bike, Cross, X } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Reveal } from "./Reveal";
 
@@ -14,7 +14,8 @@ export function Location() {
         <Reveal>
           {/* --- MAP --- */}
           <div className="aspect-4/3 w-full overflow-hidden rounded-sm border border-border">
-            <ImagePlaceholder label="Map placeholder — Izabella u. 27/A, 1077 Budapest" />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2579.424810508707!2d19.06901851715156!3d47.504795289377604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741ddd727c91d07%3A0x59c07d7c714d552c!2sDania's%20Table%20Restaurant%20%26%20Bar%20Budapest!5e1!3m2!1sen!2shu!4v1788288925652!5m2!1sen!2shu" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
           </div>
         </Reveal>
 
@@ -55,10 +56,12 @@ export function Location() {
                   Hours
                 </span>
                 <span className="font-serif text-lg text-foreground">Open daily</span>
-                <span className="mt-2 inline-flex items-center gap-2 rounded-sm bg-primary/10 px-3 py-1.5 text-xs uppercase tracking-[0.16em] text-primary">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  Open now &middot; closes 11 pm
-                </span>
+                <div className="mt-2 flex items-center">
+                  <span className="inline-flex items-center gap-2 rounded-sm bg-primary/10 px-3 py-1.5 text-xs uppercase tracking-[0.16em] text-primary">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    Open now &middot; closes 11 pm
+                  </span>
+                </div>
               </div>
             </li>
           </ul>
@@ -68,7 +71,7 @@ export function Location() {
               <UtensilsCrossed className="h-4 w-4 text-accent" /> Dine-in
             </span>
             <span className="inline-flex items-center gap-2 rounded-sm border border-border px-4 py-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              <Bike className="h-4 w-4 text-accent" /> Delivery
+              <X className="h-4 w-4 text-accent" /> No Delivery
             </span>
           </div>
         </Reveal>

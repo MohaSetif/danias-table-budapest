@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+import logo from "../../../public/danias_restaurant/logo.png";
+
 const LINKS = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
@@ -10,15 +12,20 @@ const LINKS = [
   { href: "#location", label: "Location" },
 ];
 
-/** Sticky navigation with mobile hamburger + persistent "Reserve a Table" CTA. */
+/** Sticky responsive navigation */
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
+
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -26,28 +33,51 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-border/60 bg-background/95 backdrop-blur-md"
+          ? "border-b border-border/60 bg-background/95 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10">
+      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10">
+        
+        {/* Logo */}
         <a
           href="#home"
-          className={`font-serif text-lg leading-tight tracking-wide transition-colors md:text-xl ${
-            scrolled ? "text-primary" : "text-cream"
-          }`}
+          aria-label="Dania's Table - Home"
+          className="relative z-10 flex shrink-0 items-center"
         >
-          Dania&rsquo;s Table
+          <img
+            src={logo}
+            alt="Dania's Table Restaurant & Bar"
+            className="
+              h-12
+              w-auto
+              max-w-[150px]
+              object-contain
+              transition-all
+              duration-300
+
+              sm:h-14
+              sm:max-w-[170px]
+
+              md:h-16
+              md:max-w-[190px]
+
+              lg:h-20
+              lg:max-w-[220px]
+            "
+          />
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-8 lg:flex">
+        {/* Desktop navigation */}
+        <ul className="hidden items-center gap-5 xl:gap-8 lg:flex">
           {LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`text-[0.78rem] uppercase tracking-[0.18em] transition-colors hover:text-accent ${
-                  scrolled ? "text-foreground" : "text-cream/85"
+                className={`whitespace-nowrap text-[0.68rem] uppercase tracking-[0.14em] transition-colors hover:text-accent xl:text-[0.75rem] xl:tracking-[0.18em] ${
+                  scrolled
+                    ? "text-foreground"
+                    : "text-cream/85"
                 }`}
               >
                 {l.label}
@@ -56,39 +86,87 @@ export function Nav() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        {/* Right side */}
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          
+          {/* Desktop/tablet CTA */}
           <a
             href="#reserve"
-            className="hidden rounded-sm bg-primary px-5 py-2.5 text-[0.72rem] uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground sm:inline-block"
+            className="
+              hidden
+              rounded-sm
+              bg-primary
+              px-3
+              py-2
+              text-[0.62rem]
+              uppercase
+              tracking-[0.12em]
+              text-primary-foreground
+              transition-all
+              duration-300
+              hover:bg-accent
+              hover:text-accent-foreground
+
+              sm:inline-block
+              md:px-4
+              md:py-2.5
+              md:text-[0.68rem]
+
+              xl:px-5
+              xl:text-[0.72rem]
+              xl:tracking-[0.2em]
+            "
           >
             Reserve a Table
           </a>
+
+          {/* Mobile / tablet menu */}
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className={`lg:hidden ${scrolled ? "text-foreground" : "text-cream"}`}
+            className={`flex h-10 w-10 items-center justify-center transition-colors lg:hidden ${
+              scrolled ? "text-foreground" : "text-cream"
+            }`}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile menu */}
       {open && (
-        <div className="border-t border-border/60 bg-background lg:hidden">
-          <ul className="mx-auto flex max-w-7xl flex-col px-5 py-2">
-            {[...LINKS, { href: "#reserve", label: "Reserve" }].map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-border/50 py-3 text-sm uppercase tracking-[0.18em] text-foreground last:border-0 hover:text-accent"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
+        <div className="border-t border-border/60 bg-background/98 shadow-lg backdrop-blur-lg lg:hidden">
+          <ul className="mx-auto flex max-w-7xl flex-col px-5 py-3 sm:px-8">
+            {[...LINKS, { href: "#reserve", label: "Reserve a Table" }].map(
+              (l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="
+                      block
+                      border-b
+                      border-border/50
+                      py-4
+                      text-sm
+                      uppercase
+                      tracking-[0.18em]
+                      text-foreground
+                      transition-colors
+                      last:border-0
+                      hover:text-accent
+                    "
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
         </div>
       )}

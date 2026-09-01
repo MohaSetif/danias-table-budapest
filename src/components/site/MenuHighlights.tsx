@@ -6,24 +6,27 @@ import { Reveal } from "./Reveal";
  * IMAGE PLACEHOLDERS #3–#5 — one per dish card.
  * To swap a photo: import it above and add `src: myPhoto` to that dish object.
  */
-const DISHES: { label: string; name: string; hu: string; desc: string; src?: string }[] = [
+const DISHES: { label: string; name: string; hu: string; desc: string; src: string }[] = [
   {
     label: "Dish photo — Napi Leves",
     name: "Napi Leves",
     hu: "Soup of the Day",
     desc: "Whatever the market gives us that morning, simmered slowly and served with fresh bread.",
+    src: "../../../public/danias_restaurant/download (1).jpg"
   },
   {
     label: "Dish photo — Marha Gulyás",
     name: "Marha Gulyás",
     hu: "Beef Goulash",
     desc: "The classic: tender beef, sweet paprika, root vegetables and a deep, rust-red broth.",
+    src: "../../../public/danias_restaurant/download (8).jpg"
   },
   {
     label: "Dish photo — Csirkepaprikás",
     name: "Csirkepaprikás",
     hu: "Chicken Paprikash",
     desc: "Creamy paprika sauce over free-range chicken, with hand-pinched nokedli dumplings.",
+    src: "../../../public/danias_restaurant/download (13).jpg"
   },
 ];
 

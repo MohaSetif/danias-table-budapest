@@ -1,5 +1,6 @@
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Reveal } from "./Reveal";
+import table from "../../../public/danias_restaurant/download (9).jpg";
 
 /**
  * ABOUT SECTION
@@ -12,7 +13,7 @@ export function About() {
         <Reveal>
           {/* --- ABOUT IMAGE --- */}
           <div className="aspect-4/5 w-full overflow-hidden rounded-sm border border-border">
-            <ImagePlaceholder label="About photo — dining room / exposed brick" />
+            <ImagePlaceholder src={table} label="About photo — dining room / exposed brick" />
           </div>
         </Reveal>
 

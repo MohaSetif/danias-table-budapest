@@ -55,7 +55,7 @@ export function Reviews() {
         <Reveal className="mt-14 text-center">
           {/* TODO: replace with your Google Maps reviews link */}
           <a
-            href="https://www.google.com/search?q=Dania%27s+Table+Restaurant+%26+Bar+Budapest"
+            href="https://www.google.com/maps/place/Dania's+Table+Restaurant+%26+Bar+Budapest/@47.5047989,19.0690185,592m/data=!3m1!1e3!4m15!1m8!3m7!1s0x4741ddd727c91d07:0x59c07d7c714d552c!2sDania's+Table+Restaurant+%26+Bar+Budapest!8m2!3d47.5047953!4d19.0715934!10e9!16s%2Fg%2F11xtwvvf2s!3m5!1s0x4741ddd727c91d07:0x59c07d7c714d552c!8m2!3d47.5047953!4d19.0715934!16s%2Fg%2F11xtwvvf2s?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block rounded-sm border border-accent px-9 py-4 text-xs uppercase tracking-[0.24em] text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"

@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
 /*
  * Dania's Table — design system
  * Palette: deep burgundy, warm gold, cream, charcoal.
@@ -99,6 +101,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    overflow-x: hidden;
   }
 }
 

@@ -69,7 +69,7 @@ export function Nav() {
             onClick={() => setOpen((v) => !v)}
             className={`lg:hidden ${scrolled ? "text-foreground" : "text-cream"}`}
           >
-            {open ? <Menu className="h-6 w-6 rotate-90 transition-transform" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </nav>
@@ -95,5 +95,3 @@ export function Nav() {
     </header>
   );
 }
-
-export { X };

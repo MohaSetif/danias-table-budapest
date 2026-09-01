@@ -11,9 +11,9 @@ type ImagePlaceholderProps = {
   /** Human-readable label shown while no photo is set, e.g. "Dish photo — Marha Gulyás" */
   label: string;
   /** Optional imported image. When set, the real photo renders instead. */
-  src?: string;
+  src?: string | undefined;
   /** Alt text for accessibility / SEO */
-  alt?: string;
+  alt?: string | undefined;
   className?: string;
 };
 

@@ -1,40 +1,22 @@
 import { Reveal } from "./Reveal";
 import { Stars } from "./Stars";
-
-const REVIEWS = [
-  {
-    name: "Mateus Martins",
-    tag: "Local Guide",
-    quote:
-      "We stopped by Dania's for lunch while passing nearby and were pleasantly surprised. The atmosphere was lovely — very welcoming and full of character, with an authentic feel.",
-  },
-  {
-    name: "Charles Burks",
-    tag: "Local Guide",
-    quote:
-      "The perfect spot to taste the best of Budapest. I wanted to do more smaller plate tastings as opposed to a larger meal and was happy to discover Dania's Table. The proprietor was the perfect guide.",
-  },
-  {
-    name: "Lean Belly",
-    tag: "Guest",
-    quote:
-      "A very quiet and great place. I tried Hungarian cuisine for the first time, and it's absolutely delicious! The goulash, dessert, and all the other dishes are simply wonderful!",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Reviews() {
+  const { t } = useLanguage();
+
   return (
     <section id="reviews" className="candle-gradient py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Reveal className="text-center">
-          <p className="eyebrow">Guest Words</p>
+          <p className="eyebrow">{t.reviews.eyebrow}</p>
           <h2 className="mt-4 font-serif text-3xl text-cream sm:text-4xl md:text-5xl">
-            4.9 out of 5, from 345 guests
+            {t.reviews.heading}
           </h2>
         </Reveal>
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
-          {REVIEWS.map((r, i) => (
+          {t.reviews.items.map((r, i) => (
             <Reveal key={r.name} delay={i * 120}>
               <figure className="flex h-full flex-col rounded-sm border border-cream/15 bg-cream/5 p-8 transition-colors duration-500 hover:border-accent/60">
                 <Stars value={5} />
@@ -53,14 +35,13 @@ export function Reviews() {
         </div>
 
         <Reveal className="mt-14 text-center">
-          {/* TODO: replace with your Google Maps reviews link */}
           <a
             href="https://www.google.com/maps/place/Dania's+Table+Restaurant+%26+Bar+Budapest/@47.5047989,19.0690185,592m/data=!3m1!1e3!4m15!1m8!3m7!1s0x4741ddd727c91d07:0x59c07d7c714d552c!2sDania's+Table+Restaurant+%26+Bar+Budapest!8m2!3d47.5047953!4d19.0715934!10e9!16s%2Fg%2F11xtwvvf2s!3m5!1s0x4741ddd727c91d07:0x59c07d7c714d552c!8m2!3d47.5047953!4d19.0715934!16s%2Fg%2F11xtwvvf2s?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block rounded-sm border border-accent px-9 py-4 text-xs uppercase tracking-[0.24em] text-accent transition-all duration-300 hover:bg-accent hover:text-accent-foreground"
           >
-            See all 345 reviews on Google
+            {t.reviews.cta}
           </a>
         </Reveal>
       </div>

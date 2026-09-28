@@ -1,6 +1,9 @@
 import { Facebook, Instagram, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="candle-gradient">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
@@ -11,8 +14,7 @@ export function Footer() {
               Restaurant &amp; Bar
             </p>
             <p className="mt-5 text-sm font-light text-cream/70">
-              Contemporary Hungarian cuisine, small plates and tapas-style
-              tastings in Budapest&rsquo;s 7th district.
+              {t.footer.tagline}
             </p>
           </div>
 
@@ -26,8 +28,8 @@ export function Footer() {
                 06 30 319 6031
               </a>
             </p>
-            <p className="text-cream/60">Open daily &middot; closes 11 pm</p>
-            <p className="text-cream/60">4,000–6,000 Ft per person</p>
+            <p className="text-cream/60">{t.footer.hours}</p>
+            <p className="text-cream/60">{t.footer.perPerson}</p>
           </div>
 
           <div className="md:text-right">
@@ -48,13 +50,13 @@ export function Footer() {
               href="#reserve"
               className="mt-6 inline-block rounded-sm bg-accent px-7 py-3 text-xs uppercase tracking-[0.22em] text-accent-foreground transition-colors hover:bg-cream"
             >
-              Reserve a Table
+              {t.footer.reserve}
             </a>
           </div>
         </div>
 
         <p className="mt-12 border-t border-cream/15 pt-6 text-xs text-cream/50">
-          © {new Date().getFullYear()} Dania&rsquo;s Table Restaurant &amp; Bar. All rights reserved.
+          © {new Date().getFullYear()} Dania&rsquo;s Table Restaurant &amp; Bar. {t.footer.copyright}
         </p>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { LanguageProvider, useLanguage } from "@/i18n/LanguageContext";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
@@ -28,7 +29,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function Index() {
+function IndexContent() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background">
       <Nav />
@@ -48,8 +51,16 @@ function Index() {
         href="#reserve"
         className="fixed inset-x-5 bottom-5 z-40 rounded-sm bg-primary py-4 text-center text-xs uppercase tracking-[0.24em] text-primary-foreground shadow-lg sm:hidden"
       >
-        Reserve a Table
+        {t.nav.reserve}
       </a>
     </div>
+  );
+}
+
+function Index() {
+  return (
+    <LanguageProvider>
+      <IndexContent />
+    </LanguageProvider>
   );
 }

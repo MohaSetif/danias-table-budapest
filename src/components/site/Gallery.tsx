@@ -1,5 +1,6 @@
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Reveal } from "./Reveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 /**
  * GALLERY SECTION
@@ -15,11 +16,13 @@ const GALLERY: { label: string; span?: string; src: string }[] = [
 ];
 
 export function Gallery() {
+  const { t } = useLanguage();
+
   return (
     <section id="gallery" className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
       <Reveal className="text-center">
-        <p className="eyebrow">The Vibe</p>
-        <h2 className="mt-4 font-serif text-3xl text-primary sm:text-4xl md:text-5xl">Gallery</h2>
+        <p className="eyebrow">{t.gallery.eyebrow}</p>
+        <h2 className="mt-4 font-serif text-3xl text-primary sm:text-4xl md:text-5xl">{t.gallery.heading}</h2>
       </Reveal>
 
       <div className="mt-14 grid auto-rows-[180px] grid-cols-2 gap-4 md:grid-cols-4 md:auto-rows-[220px]">

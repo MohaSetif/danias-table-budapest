@@ -1,6 +1,7 @@
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { Stars } from "./Stars";
 import { Reveal } from "./Reveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 import heroImage from "../../../public/danias_restaurant/hero2.jpg";
 
 /**
@@ -9,6 +10,8 @@ import heroImage from "../../../public/danias_restaurant/hero2.jpg";
  * Replace by importing your photo and passing it as `src` below.
  */
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative min-h-[100vh] w-full overflow-hidden">
       {/* --- HERO BACKGROUND IMAGE --- */}
@@ -23,7 +26,7 @@ export function Hero() {
           <div className="mb-6 inline-flex items-center gap-3 rounded-sm border border-cream/25 px-4 py-2">
             <Stars value={4.9} />
             <span className="text-xs uppercase tracking-[0.2em] text-cream/85">
-              4.9 &middot; 345 Google reviews
+              {t.hero.reviewsBadge}
             </span>
           </div>
         </Reveal>
@@ -40,8 +43,7 @@ export function Hero() {
 
         <Reveal delay={240}>
           <p className="mx-auto mt-7 max-w-xl text-base font-light leading-relaxed text-cream/80 sm:text-lg">
-            Authentic Hungarian Flavors in the Heart of Budapest — small plates,
-            slow-cooked classics and good wine, served by candlelight.
+            {t.hero.tagline}
           </p>
         </Reveal>
 
@@ -51,13 +53,13 @@ export function Hero() {
               href="#reserve"
               className="rounded-sm bg-accent px-9 py-4 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream"
             >
-              Reserve a Table
+              {t.hero.cta}
             </a>
             <a
               href="#menu"
               className="rounded-sm border border-cream/40 px-9 py-4 text-xs uppercase tracking-[0.24em] text-cream transition-all duration-300 hover:border-accent hover:text-accent"
             >
-              View the Menu
+              {t.hero.menuLink}
             </a>
           </div>
         </Reveal>

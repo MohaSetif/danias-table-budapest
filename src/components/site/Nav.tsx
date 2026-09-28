@@ -2,20 +2,22 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 import logo from "../../../public/danias_restaurant/logo.png";
-
-const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#menu", label: "Menu" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#location", label: "Location" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 /** Sticky responsive navigation */
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, t, toggleLang } = useLanguage();
+
+  const LINKS = [
+    { href: "#home", label: t.nav.home },
+    { href: "#about", label: t.nav.about },
+    { href: "#menu", label: t.nav.menu },
+    { href: "#reviews", label: t.nav.reviews },
+    { href: "#gallery", label: t.nav.gallery },
+    { href: "#location", label: t.nav.location },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -28,6 +30,43 @@ export function Nav() {
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  /** Responsive Pill toggle: HU | EN */
+  function LangToggle({ compact = false }: { compact?: boolean }) {
+    return (
+      <button
+        type="button"
+        onClick={toggleLang}
+        aria-label={lang === "hu" ? "Switch to English" : "Váltás magyarra"}
+        className={`flex shrink-0 items-center overflow-hidden rounded-sm border text-[0.62rem] font-medium uppercase tracking-[0.1em] transition-colors cursor-pointer ${
+          compact ? "border-border" : scrolled ? "border-border" : "border-cream/40"
+        }`}
+      >
+        <span
+          className={`px-2 py-1 sm:px-2.5 sm:py-1.5 transition-colors ${
+            lang === "hu"
+              ? "bg-primary text-primary-foreground font-semibold"
+              : compact || scrolled
+                ? "text-muted-foreground hover:text-foreground"
+                : "text-cream/70 hover:text-cream"
+          }`}
+        >
+          HU
+        </span>
+        <span
+          className={`px-2 py-1 sm:px-2.5 sm:py-1.5 transition-colors ${
+            lang === "en"
+              ? "bg-primary text-primary-foreground font-semibold"
+              : compact || scrolled
+                ? "text-muted-foreground hover:text-foreground"
+                : "text-cream/70 hover:text-cream"
+          }`}
+        >
+          EN
+        </span>
+      </button>
+    );
+  }
 
   return (
     <header
@@ -88,6 +127,9 @@ export function Nav() {
 
         {/* Right side */}
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+
+          {/* Language toggle — always accessible */}
+          <LangToggle />
           
           {/* Desktop/tablet CTA */}
           <a
@@ -117,7 +159,7 @@ export function Nav() {
               xl:tracking-[0.2em]
             "
           >
-            Reserve a Table
+            {t.nav.reserve}
           </a>
 
           {/* Mobile / tablet menu */}
@@ -142,7 +184,7 @@ export function Nav() {
       {open && (
         <div className="border-t border-border/60 bg-background/98 shadow-lg backdrop-blur-lg lg:hidden">
           <ul className="mx-auto flex max-w-7xl flex-col px-5 py-3 sm:px-8">
-            {[...LINKS, { href: "#reserve", label: "Reserve a Table" }].map(
+            {[...LINKS, { href: "#reserve", label: t.nav.reserve }].map(
               (l) => (
                 <li key={l.href}>
                   <a
@@ -167,6 +209,13 @@ export function Nav() {
                 </li>
               )
             )}
+            {/* Language toggle at bottom of mobile menu drawer */}
+            <li className="flex items-center justify-between pt-4 pb-2">
+              <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                {lang === "hu" ? "Nyelv választás" : "Language selection"}
+              </span>
+              <LangToggle compact />
+            </li>
           </ul>
         </div>
       )}
